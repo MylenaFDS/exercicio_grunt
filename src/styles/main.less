@@ -1,0 +1,48 @@
+@board-size: 300px;
+@cell-size: 100px;
+@border-color: #333;
+
+.container {
+    text-align: center;
+}
+
+.board {
+    width: @board-size;
+    height: @board-size;
+    display: inline-grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    border: 2px solid @border-color;
+    margin: 20px auto;
+    background-color: #fafafa;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.row {
+    display: flex;
+}
+
+.cell {
+    width: @cell-size;
+    height: @cell-size;
+    border: 1px solid @border-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cell:hover {
+    background-color: #f0f0f0;
+}
+
+.cell:nth-child(odd) {
+    background-color: #eaeaea;
+}
+
+#message {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
