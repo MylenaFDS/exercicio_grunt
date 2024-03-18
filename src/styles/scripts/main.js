@@ -26,13 +26,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleCellClick(event) {
         const cell = event.target;
-
+    
         if (cell.textContent === '' && gameActive) {
             cell.textContent = currentPlayer;
             checkResult();
-            swapPlayer();
+            if (gameActive) {
+                swapPlayer();
+            }
         }
     }
+    
 
     function swapPlayer() {
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
