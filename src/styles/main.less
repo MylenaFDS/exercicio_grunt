@@ -1,18 +1,35 @@
-@board-size: 300px;
-@cell-size: 100px;
-@border-color: #333;
+@fontePrincipal: Roboto, sans-serif;
+@fonteDoTitulo: Lobster, cursive;
+
+/* Cores */
+@corDoTexto: #333;
+@corDeFundo: #eb3b5a;
+@corX0: #333;
+
+@cell-size: 100px; /* Tamanho das células */
 
 .container {
     text-align: center;
 }
 
+body {
+    background-color: @corDeFundo;
+    font-family: @fontePrincipal;
+    color: @corDoTexto;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-family: @fonteDoTitulo;
+    font-size: 3em;
+    margin-top: 0;
+}
+
 .board {
-    width: @board-size;
-    height: @board-size;
-    display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    border: 2px solid @border-color;
+    position: relative;
+    width: 300px; /* Largura da placa */
+    height: 300px; /* Altura da placa */
     margin: 20px auto;
     background-color: #fafafa;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -25,13 +42,14 @@
 .cell {
     width: @cell-size;
     height: @cell-size;
-    border: 1px solid @border-color;
+    border: 1px solid #333;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 2em;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    position: absolute;
 }
 
 .cell:hover {
@@ -45,4 +63,27 @@
 #message {
     margin-top: 20px;
     font-size: 1.5em;
+}
+
+.player-buttons {
+    margin-top: 20px;
+}
+
+.player-button {
+    font-size: 1.2em;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.player-button.active {
+    background-color: @corDeFundo;
+    color: #fff;
+}
+
+.player-button:hover {
+    background-color: #ccc;
 }
