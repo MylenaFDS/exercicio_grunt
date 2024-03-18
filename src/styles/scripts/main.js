@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cells = document.querySelectorAll('.cell');
     const message = document.getElementById('message');
-    const playerXButton = document.getElementById('playerX');
-    const playerOButton = document.getElementById('playerO');
     let currentPlayer = 'X';
     let gameActive = true;
 
@@ -10,32 +8,15 @@ document.addEventListener('DOMContentLoaded', function() {
         cell.addEventListener('click', handleCellClick);
     });
 
-    playerXButton.addEventListener('click', function() {
-        currentPlayer = 'X';
-        playerXButton.classList.add('active');
-        playerOButton.classList.remove('active');
-        resetGame();
-    });
-
-    playerOButton.addEventListener('click', function() {
-        currentPlayer = 'O';
-        playerOButton.classList.add('active');
-        playerXButton.classList.remove('active');
-        resetGame();
-    });
-
     function handleCellClick(event) {
         const cell = event.target;
-    
+
         if (cell.textContent === '' && gameActive) {
             cell.textContent = currentPlayer;
             checkResult();
-            if (gameActive) {
-                swapPlayer();
-            }
+            swapPlayer();
         }
     }
-    
 
     function swapPlayer() {
         currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
@@ -71,13 +52,4 @@ document.addEventListener('DOMContentLoaded', function() {
             message.textContent = "Empate!";
         }
     }
-
-    function resetGame() {
-        cells.forEach(cell => {
-            cell.textContent = '';
-        });
-        message.textContent = '';
-        gameActive = true;
-    }
 });
-
