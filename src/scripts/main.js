@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cells = document.querySelectorAll('.cell');
     const message = document.getElementById('message');
-    let currentPlayer = 'X'; // Definido como 'X' por padrão
+    let currentPlayer = Math.random() < 0.5 ? 'X' : 'O'; // Define aleatoriamente o jogador inicial
     let gameActive = true;
 
     cells.forEach(cell => {
@@ -61,8 +61,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 cell.textContent = '';
             });
             message.textContent = '';
-            currentPlayer = 'X';
+            currentPlayer = Math.random() < 0.5 ? 'X' : 'O'; // Define aleatoriamente o jogador inicial novamente
             gameActive = true;
         }, 5000); // 5 segundos em milissegundos
     }
 });
+
