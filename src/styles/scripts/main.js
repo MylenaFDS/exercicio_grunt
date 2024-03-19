@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cells = document.querySelectorAll('.cell');
     const message = document.getElementById('message');
-    let currentPlayer = 'X';
+    let currentPlayer = Math.random() < 0.5 ? 'X' : 'O';
     let gameActive = true;
 
     cells.forEach(cell => {
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function handleCellClick(event) {
         const cell = event.target;
-
+        
         if (cell.textContent === '' && gameActive) {
             cell.textContent = currentPlayer;
             checkResult();
