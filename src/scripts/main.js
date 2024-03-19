@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const cells = document.querySelectorAll('.cell');
     const message = document.getElementById('message');
-    let currentPlayer = Math.random() < 0.5 ? 'X' : 'O';
+    let currentPlayer = 'X'; // Definido como 'X' por padrão
     let gameActive = true;
 
     cells.forEach(cell => {
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (cellA !== '' && cellA === cellB && cellA === cellC) {
                 gameActive = false;
                 message.textContent = `O jogador ${currentPlayer} venceu!`;
+                resetBoardAfterDelay();
                 break;
             }
         }
@@ -50,6 +51,18 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!Array.from(cells).some(cell => cell.textContent === '') && gameActive) {
             gameActive = false;
             message.textContent = "Empate!";
+            resetBoardAfterDelay();
         }
+    }
+
+    function resetBoardAfterDelay() {
+        setTimeout(() => {
+            cells.forEach(cell => {
+                cell.textContent = '';
+            });
+            message.textContent = '';
+            currentPlayer = 'X';
+            gameActive = true;
+        }, 5000); // 5 segundos em milissegundos
     }
 });
