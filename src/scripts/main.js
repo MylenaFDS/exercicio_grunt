@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (!Array.from(cells).some(cell => cell.textContent === '') && gameActive) {
             gameActive = false;
-            message.textContent = "Empate!";
+            message.textContent = "Deu velha!";
             resetBoardAfterDelay();
         }
     }
